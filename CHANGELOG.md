@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2026-03-29
+
+### Changed
+- **Documentation Updates**: Enhanced README.md with improved visual comparisons and personal insights
+- **Asset Updates**: Updated demonstration GIFs for better clarity
+- **Repository Organization**: Improved file structure and documentation layout
+
+### Documentation
+- Refined README.md sections for better readability
+- Added more practical usage examples
+- Enhanced visual comparison sections with before/after metrics
+- Improved porting guide with clearer setup instructions
+
+---
+
 ## [1.0.0] - 2026-03-29
 
 ### Added
