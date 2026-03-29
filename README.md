@@ -12,13 +12,16 @@ License | Version
 
 ### See It In Action
 
-**WITHOUT Instructify** — Watch the chaos:
-
-![Without Instructify](assets/without.gif)
-
-**WITH Instructify** — Smooth operator:
-
-![With Instructify](assets/with.gif)
+<table>
+  <tr>
+    <td align="center"><b>WITHOUT Instructify</b><br>Watch the chaos</td>
+    <td align="center"><b>WITH Instructify</b><br>Smooth operator</td>
+  </tr>
+  <tr>
+    <td align="center"><img src="assets/without.gif" width="100%" /></td>
+    <td align="center"><img src="assets/with.gif" width="100%" /></td>
+  </tr>
+</table>
 
 > 💡 **Want to see the exact prompt?** Check out [`assets/prompt.md`](assets/prompt.md) — a real-world example of Instructify in action.
 
