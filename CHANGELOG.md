@@ -46,6 +46,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Quick reference cards
   - Best practices guides
   - Tool comparison guides
+  - **Porting Guide** - Complete guide for using in other projects
+  - **Hook Prerequisites** - Detailed setup requirements
 
 #### Rules System
 - **10+ Context Rules** for intelligent task-specific loading:
@@ -63,6 +65,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Execution Order**: Fixed hook trigger order (lint-fix → validate → track)
 - **Smart Detection**: Added code change detection to skip unnecessary runs (~40% reduction)
 - **Graceful Degradation**: Hooks now check for npm scripts before execution
+- **Documentation**: Enhanced README with porting guide and prerequisites
 - Optimized context loading to reduce overhead by 60-80%
 - Implemented research-backed prompt engineering strategies from arXiv (Jan-Feb 2026)
 - Integrated findings from ETH Zurich studies on AI agent instruction

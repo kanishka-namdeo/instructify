@@ -1,6 +1,6 @@
 {
   "name": "instructify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Advanced Cursor IDE configuration for optimized AI agent workflows with research-backed best practices, tiered context management, and extensive MCP server integrations",
   "type": "module",
   "main": "./dist/index.js",
@@ -51,7 +51,15 @@
     "automation",
     "typescript",
     "nextjs",
-    "react"
+    "react",
+    "hooks",
+    "validation",
+    "eslint",
+    "testing",
+    "workflow",
+    "agent-workflow",
+    "code-quality",
+    "devtools"
   ],
   "author": "Kanishka Namdeo",
   "license": "MIT",

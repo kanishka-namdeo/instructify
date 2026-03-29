@@ -353,6 +353,63 @@ npm test
 - Add JSDoc comments for complex functions
 - Handle errors gracefully
 
+## Package Development
+
+### NPM Package Structure
+
+This project is published as an NPM package. Key files for package distribution:
+
+```
+package.json          # Package manifest
+README.md            # Main documentation (included in package)
+CHANGELOG.md         # Version history (included in package)
+CONTRIBUTING.md      # This file (included in package)
+LICENSE              # MIT License (included in package)
+.cursor/             # Core configuration (included in package)
+docs/README.md       # Tool documentation (included in package)
+src/                 # TypeScript source code
+bin/                 # CLI entry point
+scripts/             # Build and installation scripts
+```
+
+### Building for Publish
+
+```bash
+# Build TypeScript
+npm run build
+
+# Build hooks
+npm run build:hooks
+
+# Verify package contents
+npm pack --dry-run
+
+# Publish (maintainers only)
+npm publish
+```
+
+### Package Contents
+
+The `files` array in `package.json` ensures only necessary files are published:
+- Compiled JavaScript (`dist/`)
+- Cursor configuration (`.cursor/`)
+- Documentation (`README.md`, `CHANGELOG.md`, `CONTRIBUTING.md`, `LICENSE`)
+- CLI tools (`bin/`)
+
+### Testing Before Publish
+
+```bash
+# Install locally to test
+npm link
+
+# Test CLI commands
+instructify init
+instructify verify
+
+# Unlink when done
+npm unlink
+```
+
 ## Pull Request Process
 
 1. **Create a branch** from `main`:

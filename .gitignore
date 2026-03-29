@@ -151,3 +151,4 @@ temp/
 # Misc
 *.bak
 *.orig
+docs/NPM-PUBLISH.md
