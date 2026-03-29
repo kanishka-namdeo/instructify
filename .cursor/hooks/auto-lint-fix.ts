@@ -72,7 +72,7 @@ try {
   const report = `## ${timestamp}\n\n### ESLint Results\n\n${lintOutput}\n\n`;
   
   if (existsSync(LINT_REPORT_PATH)) {
-    writeFileSync(LINT_REPORT_PATH, report, { flag: true });
+    writeFileSync(LINT_REPORT_PATH, report, { flag: 'a' });
   } else {
     writeFileSync(LINT_REPORT_PATH, `# ESLint Report\n\n${report}`);
   }

@@ -29,7 +29,10 @@
     "build": "tsc",
     "build:hooks": "node scripts/build-hooks.js",
     "prepublishOnly": "npm run build && npm run build:hooks",
-    "test": "node --test --ignore='dist/**' --ignore='.cursor/**'",
+    "lint": "eslint . --format=stylish",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test",
     "test:cli": "node --test dist/cli/index.test.js",
     "postinstall": "node ./scripts/postinstall.js"
   },
@@ -59,8 +62,15 @@
   "engines": {
     "node": ">=20.0.0"
   },
-  "os": ["darwin", "linux", "win32"],
-  "cpu": ["x64", "arm64"],
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -74,8 +84,15 @@
     }
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
     "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^8.57.2",
+    "@typescript-eslint/parser": "^8.57.2",
+    "eslint": "^10.1.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.4.0",
     "tsx": "^4.6.0",
-    "typescript": "^5.3.0"
+    "typescript": "^5.3.0",
+    "typescript-eslint": "^8.57.2"
   }
 }

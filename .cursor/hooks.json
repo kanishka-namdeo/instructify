@@ -1,36 +1,34 @@
 {
   "version": 1,
   "hooks": {
-    "stop": [
+    "after_code_change": [
       {
-        "command": "npx tsx .cursor/hooks/plan-mode-monitor.ts",
-        "runtime": "node"
-      },
-      {
-        "command": "npx tsx .cursor/hooks/plan-quality-tracker.ts",
-        "runtime": "node"
+        "command": "npx tsx .cursor/hooks/auto-lint-fix.ts",
+        "runtime": "node",
+        "description": "Auto-fix ESLint issues after code changes"
       },
       {
         "command": "npx tsx .cursor/hooks/auto-validate.ts",
-        "runtime": "node"
-      },
+        "runtime": "node",
+        "description": "Run validation sequence (lint, typecheck, tests, MCP validation)"
+      }
+    ],
+    "plan_mode_exit": [
       {
-        "command": "npx tsx .cursor/hooks/mcp-tool-validator.ts",
-        "runtime": "node"
-      },
-      {
-        "command": "npx tsx .cursor/hooks/auto-lint-fix.ts",
-        "runtime": "node"
-      },
-      {
-        "command": "npx tsx .cursor/hooks/test-runner.ts",
-        "runtime": "node"
+        "command": "npx tsx .cursor/hooks/plan-quality-tracker.ts",
+        "runtime": "node",
+        "description": "Track plan execution metrics and provide feedback"
       }
     ]
   },
   "runtimeNotes": {
     "node": "Hooks run with tsx (TypeScript executor for Node.js)",
     "bun": "Alternative: bun run .cursor/hooks/*.ts",
-    "recommendation": "Use npx tsx for maximum compatibility. Install tsx: npm install -g tsx"
+    "recommendation": "Use npx tsx for maximum compatibility. Install tsx: npm install -g tsx",
+    "triggerTypes": {
+      "after_code_change": "Fires after code modifications are made",
+      "plan_mode_exit": "Fires when exiting plan mode after execution",
+      "stop": "Fires on conversation stop (deprecated - use specific triggers)"
+    }
   }
 }

@@ -169,15 +169,13 @@ async function init(options: CLIOptions): Promise<void> {
 }
 
 async function countFiles(dir: string): Promise<number> {
-  let count = 0;
   try {
     const entries = await readdirRecursive(dir);
-    count = entries.length;
+    return entries.length;
   } catch {
     // If we can't count, return estimate
-    count = 30; // Approximate number of files in .cursor/
+    return 30; // Approximate number of files in .cursor/
   }
-  return count;
 }
 
 async function readdirRecursive(dir: string): Promise<string[]> {

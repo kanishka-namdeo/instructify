@@ -284,36 +284,33 @@ Tier 4 (Most expensive): Parallel subagents, Browser MCP
 
 ### Hooks (`.cursor/hooks/`)
 
-#### 1. plan-mode-monitor.ts
+#### 1. plan-quality-tracker.ts (Consolidated)
 
-**Purpose**: Plan execution quality monitoring
+**Purpose**: Plan metrics tracking, monitoring, and learning
+
+**Note**: Consolidated from `plan-mode-monitor.ts` and `plan-quality-tracker.ts` in March 2026 optimization.
 
 **Features**:
-- Track completion status
-- Monitor loop iterations
-- Provide feedback on failures
-- Suggest improvements
+- Track completion status and loop iterations
+- Real tool usage extraction from conversations
+- Actual plan accuracy calculations
+- Tool efficiency scoring (Tier 1-4)
+- MCP server usage tracking
+- Parallel subagent counting
+- Provide feedback on failures and patterns
+- Suggest improvements based on metrics
 
-**Triggers**: After each plan execution (stop hook)
-
-**Example Output**:
-```
-[Plan Monitor] Status: completed, Loop: 2
-[Plan Monitor] ✓ Plan completed successfully
-```
-
----
-
-#### 2. plan-quality-tracker.ts
-
-**Purpose**: Plan metrics tracking and learning
+**Triggers**: `plan_mode_exit` event
 
 **Metrics Tracked**:
-- `plan_accuracy`: % of plan followed exactly
+- `plan_accuracy`: % of plan followed (calculated from loop count + tool failures)
 - `time_variance`: actual vs estimated time
 - `tool_usage`: frequency per tool
 - `iteration_count`: /grind loops used
 - `blocker_count`: times BLOCKED
+- `tool_efficiency`: ratio of cheap vs expensive tools
+- `mcp_usage`: MCP server frequency
+- `parallel_subagents`: count of parallel subagents used
 
 **Storage**: `.cursor/plan-metrics.json`
 
@@ -321,33 +318,57 @@ Tier 4 (Most expensive): Parallel subagents, Browser MCP
 
 **Example Output**:
 ```
+[Plan Tracker] Status: completed, Loop: 2
+[Plan Tracker] ✓ Metrics saved
 [Plan Tracker] Rolling averages (last 10 plans):
   - Accuracy: 82.5%
   - Avg iterations: 1.8
+  - Tool efficiency: 75.0
+  - Avg parallel subagents: 2.3
+[Plan Tracker] MCP tools used in this session: browser_navigate, github_search
+[Plan Tracker] ✓ High accuracy with MCP tools - good tool selection
 ```
 
 ---
 
-#### 3. hooks.json
+#### 2. hooks.json (Updated)
 
 **Purpose**: Configure all hooks
 
-**Configuration**:
+**Configuration** (After Consolidation):
 ```json
 {
   "version": 1,
   "hooks": {
-    "stop": [
+    "after_code_change": [
       {
-        "command": "bun run .cursor/hooks/plan-mode-monitor.ts"
+        "command": "npx tsx .cursor/hooks/auto-lint-fix.ts",
+        "runtime": "node",
+        "description": "Auto-fix ESLint issues after code changes"
       },
       {
-        "command": "bun run .cursor/hooks/plan-quality-tracker.ts"
+        "command": "npx tsx .cursor/hooks/auto-validate.ts",
+        "runtime": "node",
+        "description": "Run validation sequence (lint, typecheck, tests, MCP validation)"
+      }
+    ],
+    "plan_mode_exit": [
+      {
+        "command": "npx tsx .cursor/hooks/plan-quality-tracker.ts",
+        "runtime": "node",
+        "description": "Track plan execution metrics and provide feedback"
       }
     ]
   }
 }
 ```
+
+**Changes**:
+- Consolidated from 6 hooks to 3 hooks
+- Changed from `stop` trigger to event-specific triggers
+- Added `after_code_change` for validation hooks
+- Added `plan_mode_exit` for plan tracking
+- Removed redundant hooks (test-runner, mcp-tool-validator, plan-mode-monitor)
 
 ---
 

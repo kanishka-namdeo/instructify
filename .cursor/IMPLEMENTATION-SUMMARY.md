@@ -108,14 +108,16 @@ Comprehensive optimization of Cursor agent-mode instructions to automatically im
 **Size Increase**: +120 lines
 
 ### 2. `.cursor/hooks/plan-mode-monitor.ts`
-**Added Features**:
+**Note**: This file was later consolidated into `plan-quality-tracker.ts` in the Hook Optimization update (March 2026).
+
+**Original Added Features**:
 - ToolUsage interface
 - Tool usage tracking array
 - Expensive tool detection
 - Failed tool analysis
 - Feedback on slow tool patterns
 
-**Size Increase**: +25 lines
+**Size Increase**: +25 lines (before consolidation)
 
 ### 3. `.cursor/hooks/plan-quality-tracker.ts`
 **Added Features**:

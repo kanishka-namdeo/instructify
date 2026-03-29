@@ -101,20 +101,25 @@ Task keywords + File patterns → Load relevant Tier 2 context:
 ### 5. Hook-Based Validation Optimization
 **Automatic Triggers**:
 ```
-After EVERY task completion (stop hook):
-- mcp-tool-validator → Verify MCP results
-- auto-lint-fix → Fix lint issues
-- test-runner → Run relevant tests
+After code changes (after_code_change hook):
+- auto-lint-fix → Fix lint issues first
+- auto-validate → Unified validation (lint + typecheck + tests + MCP)
+
+After plan mode (plan_mode_exit hook):
+- plan-quality-tracker → Track metrics and provide feedback
 ```
 
 **Validation Pipeline** (Automatic):
 ```
 1. Code change detected
-2. Stop hook triggers
-3. mcp-tool-validator: Check MCP tool results
-4. auto-lint-fix: Run ESLint, auto-fix
-5. test-runner: Run tests
-6. Report results to user
+2. after_code_change hook triggers
+3. auto-lint-fix: Run ESLint, auto-fix
+4. auto-validate: 
+   - Lint check
+   - Typecheck
+   - Run tests
+   - Validate MCP tools
+5. Report results to user
 ```
 
 ---
@@ -143,9 +148,8 @@ Automatic Optimizations:
    - user-github: Create PR
 
 4. **Validation Hooks**:
-   - mcp-tool-validator: Verify
    - auto-lint-fix: Fix issues
-   - test-runner: Run auth tests
+   - auto-validate: Unified validation (includes MCP validation + tests)
 
 Time: 5-7 minutes (vs 15-20 manual)
 ```
@@ -175,9 +179,8 @@ Automatic Optimizations:
    - user-github: Create PR
 
 4. **Validation Hooks**:
-   - mcp-tool-validator: Verify
    - auto-lint-fix: Fix issues
-   - test-runner: Run checkout tests
+   - auto-validate: Unified validation (includes MCP validation + tests)
 
 Time: 3-5 minutes (vs 10-15 manual)
 ```
@@ -207,7 +210,7 @@ Automatic Optimizations:
 
 4. **Validation Hooks** (after each step):
    - auto-lint-fix: Fix issues
-   - test-runner: Run relevant tests
+   - auto-validate: Run unified validation (includes tests)
 
 Time: 20-30 minutes (vs 60-90 manual)
 ```
@@ -220,7 +223,7 @@ Time: 20-30 minutes (vs 60-90 manual)
 ```
 Monitor for error patterns:
 - ESLint errors → Trigger auto-lint-fix
-- Test failures → Trigger test-runner with debug mode
+- Test failures → Trigger auto-validate with debug mode
 - Build errors → Fetch build docs via user-context7
 - Runtime errors → Trigger browser debugging
 ```
@@ -301,7 +304,7 @@ User: "Add dark mode toggle to settings page"
 
 4. Hooks:
    - auto-lint-fix: ✅ Passed
-   - test-runner: ✅ Tests pass
+   - auto-validate: ✅ All validations passed
 
 Result: 4 minutes, 100% quality gates pass
 ```
@@ -328,8 +331,7 @@ User: "Audit and improve dashboard performance"
    - user-chrome-devtools: Re-audit
 
 4. Hooks:
-   - mcp-tool-validator: ✅ All tools succeeded
-   - test-runner: ✅ Tests pass
+   - auto-validate: ✅ All validations passed (MCP + tests)
 
 Result: 8 minutes, Lighthouse score 92 (from 67)
 ```

@@ -1,0 +1,28 @@
+{
+  "validation": {
+    "enableLint": true,
+    "enableTypecheck": true,
+    "enableTests": true,
+    "enableMCPValidation": true,
+    "lintCommand": null,
+    "typecheckCommand": null,
+    "testCommand": null
+  },
+  "planTracking": {
+    "trackMetrics": true,
+    "accuracyThreshold": 70,
+    "efficiencyThreshold": 60,
+    "maxIterations": 5,
+    "provideFeedback": true
+  },
+  "autoLintFix": {
+    "enabled": true,
+    "maxFixAttempts": 1,
+    "timeout": 60000
+  },
+  "reporting": {
+    "generateReports": true,
+    "reportDirectory": ".cursor",
+    "appendReports": false
+  }
+}
