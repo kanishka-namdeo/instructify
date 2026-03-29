@@ -1,0 +1,42 @@
+{
+  "name": "instructify",
+  "version": "1.0.0",
+  "description": "Advanced Cursor IDE configuration for optimized AI agent workflows with research-backed best practices, tiered context management, and extensive MCP server integrations",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "echo \"Running linter...\"",
+    "validate": "echo \"Running validation...\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kanishka-namdeo/instructify.git"
+  },
+  "keywords": [
+    "cursor-ide",
+    "ai-agent",
+    "mcp-server",
+    "developer-tools",
+    "productivity",
+    "context-management",
+    "prompt-engineering",
+    "automation",
+    "typescript",
+    "nextjs",
+    "react"
+  ],
+  "author": "Kanishka Namdeo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kanishka-namdeo/instructify/issues"
+  },
+  "homepage": "https://github.com/kanishka-namdeo/instructify#readme",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=9.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0"
+  }
+}
