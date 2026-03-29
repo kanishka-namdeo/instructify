@@ -47,14 +47,13 @@ cd instructify
 
 ### The Before and After
 
+| WITHOUT Instructify                                | WITH Instructify                              |
+| -------------------------------------------------- | --------------------------------------------- |
+| My old sessions - chaos and wasted tokens          | How it runs now - smooth and efficient        |
+|                                                    |                                               |
+| ![Without Instructify](assets/without.gif)         | ![With Instructify](assets/with.gif)          |
 
-|                                         |                                      |
-| --------------------------------------- | ------------------------------------ |
-| **WITHOUT Instructify** My old sessions | **WITH Instructify** How it runs now |
-|                                         |                                      |
-
-
-These are actual screenshots from my workflow. See the difference?
+These are actual GIFs from my workflow. See the difference?
 
 > 💡 **Want to see the exact prompt I use?** Check out `[assets/prompt.md](assets/prompt.md)` — straight from my daily driver.
 
