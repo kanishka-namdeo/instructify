@@ -78,17 +78,8 @@ instructify/
 │   │   ├── mcp-tool-validator.ts
 │   │   ├── auto-lint-fix.ts
 │   │   └── test-runner.ts
-│   └── docs/                  # Internal documentation
-│
-└── docs/                      # Comprehensive guides
-    ├── README.md              # Master tool index
-    ├── AGENT-INSTRUCTION-BEST-PRACTICES.md  # 3,239-line guide
-    ├── builtin/               # Built-in Cursor tools
-    ├── mcp/                   # MCP server documentation
-    ├── comparisons/           # Tool comparison guides
-    ├── scenarios/             # Usage workflows
-    ├── quickref/              # Quick reference cards
-    └── best-practices/        # Best practices guides
+│   └── docs/                  # Internal documentation (maintainer use only)
+└── AGENT-INSTRUCTION-BEST-PRACTICES.md  # Main documentation (3,239 lines)
 ```
 
 ## 🎯 Quick Start
@@ -120,7 +111,6 @@ The `.cursor/` directory contains all necessary configuration. Cursor will autom
 
 Start with these key resources:
 - [`AGENT-INSTRUCTION-BEST-PRACTICES.md`](AGENT-INSTRUCTION-BEST-PRACTICES.md) - Comprehensive guide
-- [`docs/README.md`](docs/README.md) - Master index of all tools
 - [`.cursor/docs/MCP-INTEGRATION-GUIDE.md`](.cursor/docs/MCP-INTEGRATION-GUIDE.md) - MCP usage guide
 
 ## 📖 Documentation
@@ -157,11 +147,13 @@ Start with these key resources:
 12. **user-sequential-thinking** - Reasoning tool
 
 ### Usage Scenarios
-- [Frontend Development](docs/scenarios/FrontendDevelopment.md)
-- [Backend Development](docs/scenarios/BackendDevelopment.md)
-- [Flutter Development](docs/scenarios/FlutterDevelopment.md)
-- [Performance Optimization](docs/scenarios/PerformanceOptimization.md)
-- [Security Review](docs/scenarios/SecurityReview.md)
+
+The project includes documentation for various development workflows:
+- Frontend Development (React, Next.js, Vite)
+- Backend Development (Node.js, Python)
+- Flutter Development
+- Performance Optimization
+- Security Review
 
 ## 🔧 Configuration
 
@@ -241,7 +233,6 @@ This project implements findings from:
 ## 📬 Support
 
 - **Documentation**: [`AGENT-INSTRUCTION-BEST-PRACTICES.md`](AGENT-INSTRUCTION-BEST-PRACTICES.md)
-- **Tool Index**: [`docs/README.md`](docs/README.md)
 - **Issues**: [GitHub Issues](https://github.com/kanishka-namdeo/instructify/issues)
 
 ---
