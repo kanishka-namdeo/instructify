@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "hooks": {
+    "stop": [
+      {
+        "command": "bun run .cursor/hooks/plan-mode-monitor.ts"
+      },
+      {
+        "command": "bun run .cursor/hooks/plan-quality-tracker.ts"
+      },
+      {
+        "command": "bun run .cursor/hooks/auto-validate.ts"
+      },
+      {
+        "command": "bun run .cursor/hooks/mcp-tool-validator.ts"
+      },
+      {
+        "command": "bun run .cursor/hooks/auto-lint-fix.ts"
+      },
+      {
+        "command": "bun run .cursor/hooks/test-runner.ts"
+      }
+    ]
+  }
+}
