@@ -65,7 +65,7 @@ temp/
 *.orig
 
 # Documentation (exclude most, keep essentials)
-docs/**
+reference_docs/**
 
 # MCP servers (not included in package - configured in Cursor)
 mcps/

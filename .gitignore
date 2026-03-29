@@ -9,7 +9,7 @@ build/
 out/
 .next/
 .nuxt/
-docs/
+reference_docs/
 
 # Logs
 logs
