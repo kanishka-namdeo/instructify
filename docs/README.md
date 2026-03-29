@@ -2,10 +2,6 @@
 
 Welcome to the Instructify documentation! This is your comprehensive guide to optimizing AI coding agent workflows in Cursor IDE.
 
-## 📚 What You'll Find Here
-
-This documentation covers everything from basic setup to advanced MCP server configurations and hook automation.
-
 ## 🚀 Quick Start
 
 ### Installing the Package
@@ -34,83 +30,6 @@ npx instructify verify
 npm install -D tsx typescript eslint @eslint/js \
   @typescript-eslint/eslint-plugin @typescript-eslint/parser \
   typescript-eslint globals
-```
-
-## 📖 Documentation Sections
-
-### Getting Started
-
-- **[INSTALLATION.md](INSTALLATION.md)** - Complete installation guide for all scenarios
-- **[README.md](../README.md)** - Main documentation with setup guide and workflow examples
-- **[NPM-PUBLISH.md](NPM-PUBLISH.md)** - Guide for publishing to npm (maintainers)
-
-### Core Concepts
-
-- **[AGENT-INSTRUCTION-BEST-PRACTICES.md](../AGENT-INSTRUCTION-BEST-PRACTICES.md)** - Comprehensive 3,239-line guide on AI agent instruction
-- **[CHANGELOG.md](../CHANGELOG.md)** - Version history and recent changes
-- **[CONTRIBUTING.md](../CONTRIBUTING.md)** - How to contribute to the project
-
-### Using in Other Projects
-
-See the **"🚀 Using This in Another Project"** section in the main README for:
-- Quick port guide (minimal vs full setup)
-- Feature matrix (what works with what)
-- Customization examples
-- Common issues and solutions
-
-## 🔧 Configuration Files
-
-### Hook Configuration (`.cursor/hooks.json`)
-
-Defines which hooks run on which events:
-
-```json
-{
-  "version": 1,
-  "hooks": {
-    "after_code_change": [
-      {
-        "command": "npx tsx .cursor/hooks/auto-lint-fix.ts",
-        "runtime": "node",
-        "description": "Auto-fix ESLint issues"
-      },
-      {
-        "command": "npx tsx .cursor/hooks/auto-validate.ts",
-        "runtime": "node",
-        "description": "Run validation sequence"
-      }
-    ],
-    "plan_mode_exit": [
-      {
-        "command": "npx tsx .cursor/hooks/plan-quality-tracker.ts",
-        "runtime": "node",
-        "description": "Track plan metrics"
-      }
-    ]
-  }
-}
-```
-
-### Custom Settings (`.cursor/hooks.config.json`)
-
-Optional configuration for customizing hook behavior:
-
-```json
-{
-  "validation": {
-    "enableLint": true,
-    "enableTypecheck": true,
-    "enableTests": true,
-    "enableMCPValidation": true
-  },
-  "planTracking": {
-    "trackMetrics": true,
-    "accuracyThreshold": 70,
-    "efficiencyThreshold": 60,
-    "maxIterations": 5,
-    "provideFeedback": true
-  }
-}
 ```
 
 ## 🎯 Key Features
@@ -200,6 +119,83 @@ Tier 4 (MCP) ───────► 189+ specialized tools
 ```
 
 **Rule:** Start with Tier 1. Only go higher when needed.
+
+## 📖 Documentation Sections
+
+### Getting Started
+
+- **[INSTALLATION.md](INSTALLATION.md)** - Complete installation guide for all scenarios
+- **[README.md](../README.md)** - Main documentation with setup guide and workflow examples
+- **[NPM-PUBLISH.md](NPM-PUBLISH.md)** - Guide for publishing to npm (maintainers)
+
+### Core Concepts
+
+- **[AGENT-INSTRUCTION-BEST-PRACTICES.md](../AGENT-INSTRUCTION-BEST-PRACTICES.md)** - Comprehensive 3,239-line guide on AI agent instruction
+- **[CHANGELOG.md](../CHANGELOG.md)** - Version history and recent changes
+- **[CONTRIBUTING.md](../CONTRIBUTING.md)** - How to contribute to the project
+
+### Using in Other Projects
+
+See the **"🚀 Using This in Another Project"** section in the main README for:
+- Quick port guide (minimal vs full setup)
+- Feature matrix (what works with what)
+- Customization examples
+- Common issues and solutions
+
+## 🔧 Configuration Files
+
+### Hook Configuration (`.cursor/hooks.json`)
+
+Defines which hooks run on which events:
+
+```json
+{
+  "version": 1,
+  "hooks": {
+    "after_code_change": [
+      {
+        "command": "npx tsx .cursor/hooks/auto-lint-fix.ts",
+        "runtime": "node",
+        "description": "Auto-fix ESLint issues"
+      },
+      {
+        "command": "npx tsx .cursor/hooks/auto-validate.ts",
+        "runtime": "node",
+        "description": "Run validation sequence"
+      }
+    ],
+    "plan_mode_exit": [
+      {
+        "command": "npx tsx .cursor/hooks/plan-quality-tracker.ts",
+        "runtime": "node",
+        "description": "Track plan metrics"
+      }
+    ]
+  }
+}
+```
+
+### Custom Settings (`.cursor/hooks.config.json`)
+
+Optional configuration for customizing hook behavior:
+
+```json
+{
+  "validation": {
+    "enableLint": true,
+    "enableTypecheck": true,
+    "enableTests": true,
+    "enableMCPValidation": true
+  },
+  "planTracking": {
+    "trackMetrics": true,
+    "accuracyThreshold": 70,
+    "efficiencyThreshold": 60,
+    "maxIterations": 5,
+    "provideFeedback": true
+  }
+}
+```
 
 ## 🔌 MCP Server Setup
 
