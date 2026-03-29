@@ -3,23 +3,34 @@
   "hooks": {
     "stop": [
       {
-        "command": "bun run .cursor/hooks/plan-mode-monitor.ts"
+        "command": "npx tsx .cursor/hooks/plan-mode-monitor.ts",
+        "runtime": "node"
       },
       {
-        "command": "bun run .cursor/hooks/plan-quality-tracker.ts"
+        "command": "npx tsx .cursor/hooks/plan-quality-tracker.ts",
+        "runtime": "node"
       },
       {
-        "command": "bun run .cursor/hooks/auto-validate.ts"
+        "command": "npx tsx .cursor/hooks/auto-validate.ts",
+        "runtime": "node"
       },
       {
-        "command": "bun run .cursor/hooks/mcp-tool-validator.ts"
+        "command": "npx tsx .cursor/hooks/mcp-tool-validator.ts",
+        "runtime": "node"
       },
       {
-        "command": "bun run .cursor/hooks/auto-lint-fix.ts"
+        "command": "npx tsx .cursor/hooks/auto-lint-fix.ts",
+        "runtime": "node"
       },
       {
-        "command": "bun run .cursor/hooks/test-runner.ts"
+        "command": "npx tsx .cursor/hooks/test-runner.ts",
+        "runtime": "node"
       }
     ]
+  },
+  "runtimeNotes": {
+    "node": "Hooks run with tsx (TypeScript executor for Node.js)",
+    "bun": "Alternative: bun run .cursor/hooks/*.ts",
+    "recommendation": "Use npx tsx for maximum compatibility. Install tsx: npm install -g tsx"
   }
 }

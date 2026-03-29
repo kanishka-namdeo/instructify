@@ -4,6 +4,37 @@
 
 Instructify is your plug-and-play configuration to make Cursor IDE's AI coding agent **faster, smarter, and less annoying**. Backed by research from ETH Zurich and arXiv (2026), it cuts token waste and gets shit done.
 
+## 📦 Installation
+
+### Option 1: NPM Package (Recommended)
+
+```bash
+# Install the package
+npm install instructify
+
+# Run the setup CLI
+npx instructify init
+
+# Or verify Cursor compatibility
+npx instructify verify
+```
+
+### Option 2: Git Repository
+
+```bash
+git clone https://github.com/kanishka-namdeo/instructify.git
+cd instructify
+# Manually copy .cursor/ to your project root
+```
+
+### Requirements
+
+- **Cursor IDE**: >= 0.40.0 ([Download](https://cursor.com))
+- **Node.js**: >= 20.0.0 (for CLI and hooks)
+- **npm**: >= 9.0.0
+
+---
+
 License | Version
 
 ---
@@ -197,7 +228,26 @@ npm install
 bun install
 ```
 
-### 3. Let Cursor Do Its Thing
+### 3. MCP Server Configuration (Important)
+
+**Note**: MCP servers are configured in Cursor IDE settings, not automatically by this package.
+
+To configure MCP servers:
+1. Open Cursor IDE Settings
+2. Navigate to MCP Servers section
+3. Add servers from the `mcps/` directory examples (if provided)
+4. Or configure your own MCP servers
+
+Available MCP servers provide 189+ specialized tools:
+- Browser automation (cursor-ide-browser, Playwright, Selenium, Chrome DevTools)
+- Development tools (GitHub API, Dart/Flutter, ESLint)
+- Documentation lookup (Context7, DeepWiki)
+- UI/UX design (shadcn UI, Stitch)
+- Reasoning (Sequential Thinking)
+
+See [`docs/README.md`](docs/README.md) for complete tool documentation.
+
+### 4. Let Cursor Do Its Thing
 
 Cursor automatically:
 - ✅ Loads rules based on task context
@@ -296,6 +346,26 @@ Use `user-github` for:
 
 ## 🔧 Configuration
 
+### Hook Runtime Requirements
+
+Hooks use TypeScript and can run with either:
+
+**Option 1: tsx (Recommended - Works with Node.js)**
+```bash
+# Install tsx globally
+npm install -g tsx
+
+# Hooks will automatically use npx tsx
+```
+
+**Option 2: Bun**
+```bash
+# Install Bun
+curl -fsSL https://bun.sh/install | bash
+
+# Update .cursor/hooks.json to use bun run
+```
+
 ### Hook Setup (`.cursor/hooks.json`)
 
 ```json
@@ -321,6 +391,43 @@ Tier 2 (Moderate) ──► ReadLints, SemanticSearch
 Tier 3 (Expensive) ─► Task, WebSearch, WebFetch
                        ↓
 Tier 4 (MCP) ───────► 189+ specialized tools
+```
+
+---
+
+## 🔌 Version Compatibility
+
+| Component | Minimum Version | Recommended |
+|-----------|----------------|-------------|
+| Cursor IDE | 0.40.0 | Latest |
+| Node.js | 20.0.0 | 20.x or 22.x |
+| npm | 9.0.0 | Latest |
+| TypeScript | 5.3.0 | Latest |
+| tsx | 4.6.0 | Latest |
+
+### Checking Your Versions
+
+```bash
+# Check Cursor version (in Cursor: Help > About)
+# Check Node.js version
+node --version
+
+# Check npm version
+npm --version
+```
+
+### Updating
+
+```bash
+# Update Node.js (using nvm)
+nvm install 20
+nvm use 20
+
+# Update tsx
+npm install -g tsx@latest
+
+# Update Cursor IDE
+# Download from: https://cursor.com
 ```
 
 ---
@@ -368,9 +475,12 @@ Built on research from:
 
 ## 📬 Need Help?
 
+- **Installation**: `npm install instructify` then `npx instructify init`
 - **The Bible**: [`AGENT-INSTRUCTION-BEST-PRACTICES.md`](AGENT-INSTRUCTION-BEST-PRACTICES.md)
 - **Tool Docs**: [`docs/README.md`](docs/README.md)
+- **NPM Package**: [instructify on npmjs.com](https://www.npmjs.com/package/instructify)
 - **Issues**: [GitHub Issues](https://github.com/kanishka-namdeo/instructify/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/kanishka-namdeo/instructify/discussions)
 
 ---
 

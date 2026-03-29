@@ -1,0 +1,116 @@
+# Development files
+.git/
+.gitignore
+.cursor/sessions/
+.cursor/agent-transcripts/
+.cursor/hooks/state/
+*.cursor-state
+
+# Build output (included separately)
+dist/
+!dist/index.js
+!dist/index.d.ts
+!dist/cli/
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Test and coverage
+coverage/
+*.lcov
+.nyc_output/
+jest-results/
+test-results/
+playwright-report/
+playwright/.cache/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.orig
+
+# Documentation (exclude most, keep essentials)
+docs/**
+
+# MCP servers (not included in package - configured in Cursor)
+mcps/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Build artifacts
+build/
+Out/
+
+# Environment files
+.env
+.env.test
+.env.production
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Cache files
+.npm/
+.eslintcache
+.node_repl_history
+
+# Yarn integrity
+.yarn-integrity
+
+# Parcel cache
+.parcel-cache
+
+# Serverless directories
+.serverless/
+
+# DynamoDB Local
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# VSCode test
+.vscode-test
+
+# Plan files (development only)
+.cursor/plans/
+
+# Agent transcripts
+agent-transcripts/

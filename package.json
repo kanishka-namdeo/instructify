@@ -2,12 +2,36 @@
   "name": "instructify",
   "version": "1.0.0",
   "description": "Advanced Cursor IDE configuration for optimized AI agent workflows with research-backed best practices, tiered context management, and extensive MCP server integrations",
-  "main": "index.js",
   "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./.cursor/*": "./.cursor/*",
+    "./docs/*": "./docs/*"
+  },
+  "bin": {
+    "instructify": "./bin/cli.js"
+  },
+  "files": [
+    "dist",
+    ".cursor",
+    "docs/README.md",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "echo \"Running linter...\"",
-    "validate": "echo \"Running validation...\""
+    "build": "tsc",
+    "build:hooks": "node scripts/build-hooks.js",
+    "prepublishOnly": "npm run build && npm run build:hooks",
+    "test": "node --test --ignore='dist/**' --ignore='.cursor/**'",
+    "test:cli": "node --test dist/cli/index.test.js",
+    "postinstall": "node ./scripts/postinstall.js"
   },
   "repository": {
     "type": "git",
@@ -33,10 +57,25 @@
   },
   "homepage": "https://github.com/kanishka-namdeo/instructify#readme",
   "engines": {
-    "node": ">=20.0.0",
-    "npm": ">=9.0.0"
+    "node": ">=20.0.0"
+  },
+  "os": ["darwin", "linux", "win32"],
+  "cpu": ["x64", "arm64"],
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false,
+  "peerDependencies": {
+    "cursor": ">=0.40.0"
+  },
+  "peerDependenciesMeta": {
+    "cursor": {
+      "optional": true
+    }
   },
   "devDependencies": {
+    "@types/node": "^20.10.0",
+    "tsx": "^4.6.0",
     "typescript": "^5.3.0"
   }
 }
