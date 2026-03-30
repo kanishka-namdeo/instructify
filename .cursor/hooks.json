@@ -11,6 +11,11 @@
         "command": "npx tsx .cursor/hooks/auto-validate.ts",
         "runtime": "node",
         "description": "Run validation sequence (lint, typecheck, tests, MCP validation)"
+      },
+      {
+        "command": "npx tsx .cursor/hooks/auto-security-review.ts",
+        "runtime": "node",
+        "description": "Automatic security vulnerability scan (OWASP Top 10)"
       }
     ],
     "plan_mode_exit": [
@@ -18,6 +23,11 @@
         "command": "npx tsx .cursor/hooks/plan-quality-tracker.ts",
         "runtime": "node",
         "description": "Track plan execution metrics and provide feedback"
+      },
+      {
+        "command": "npx tsx .cursor/hooks/auto-learning-review.ts",
+        "runtime": "node",
+        "description": "Automated weekly learning review (runs every 10 plans)"
       }
     ]
   },

@@ -4,6 +4,16 @@
     "enableTypecheck": true,
     "enableTests": true,
     "enableMCPValidation": true,
+    "enableSecurityReview": true,
+    "securitySeverityThreshold": "high",
+    "securityScanPatterns": {
+      "hardcodedCredentials": true,
+      "sqlInjection": true,
+      "xss": true,
+      "insecureCrypto": true,
+      "pathTraversal": true,
+      "commandInjection": true
+    },
     "lintCommand": null,
     "typecheckCommand": null,
     "testCommand": null
@@ -13,7 +23,24 @@
     "accuracyThreshold": 70,
     "efficiencyThreshold": 60,
     "maxIterations": 5,
-    "provideFeedback": true
+    "provideFeedback": true,
+    "enableCostTracking": true,
+    "enablePatternAnalysis": true,
+    "costAlertThresholds": {
+      "singlePlan": 20000,
+      "dailyTotal": 100000,
+      "weeklyAverage": 10000
+    },
+    "efficiencyTargets": {
+      "toolEfficiency": 70,
+      "mcpUsageRatio": 30,
+      "tier1UsageRatio": 60
+    },
+    "benchmarks": {
+      "simpleFix": 3000,
+      "featureImplementation": 15000,
+      "complexRefactor": 20000
+    }
   },
   "autoLintFix": {
     "enabled": true,

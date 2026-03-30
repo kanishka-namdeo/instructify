@@ -88,12 +88,19 @@ generalPurpose (capable): $$$ (Use for complex reasoning)
 browser-use: $$$$ (Use only when browser needed)
 ```
 
-**Rules**:
-1. Use `model="fast"` for all exploration subagents
-2. Use `readonly=true` unless modification needed
-3. Use `run_in_background=true` for non-blocking
-4. Limit to 4 parallel subagents max (diminishing returns)
-5. Time-box to 120s max per subagent
+**Mandatory Cost Rules**:
+1. **ALWAYS** use `model="fast"` for exploration subagents (90% of cases)
+2. **ONLY** use capable model for:
+   - Complex reasoning tasks
+   - Multi-step analysis
+   - Security-critical reviews
+3. **DOCUMENT** model choice in plan (justify if not "fast")
+4. Use `readonly=true` unless modification needed
+5. Use `run_in_background=true` for non-blocking
+6. Limit to 4 parallel subagents max (diminishing returns)
+7. Time-box to 120s max per subagent
+
+**Cost Impact**: Using `model="fast"` reduces exploration costs by 50-70%
 
 ## Consolidation Strategy
 
