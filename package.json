@@ -1,6 +1,6 @@
 {
   "name": "instructify",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Advanced Cursor IDE configuration for optimized AI agent workflows with research-backed best practices, tiered context management, and extensive MCP server integrations",
   "type": "module",
   "main": "./dist/index.js",
